@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mBuilder.setStyle(inboxStyle);
+
         mNotificationManager.notify(++notifyID, mBuilder.build());
     }
 
@@ -168,5 +169,37 @@ public class MainActivity extends AppCompatActivity {
         for( int i = 0; i < len; i++ )
             sb.append( AB.charAt( rnd.nextInt(AB.length()) ) );
         return sb.toString();
+    }
+
+    public void determinateNotification(View view){
+        mBuilder.setContentTitle("Mp3 İndirme");
+        mBuilder.setContentText("Mp3 indiriliyor..");
+        mBuilder.setSmallIcon(R.drawable.ic_file_download_black_48dp);
+
+        // Thread başlatıyoruz.
+        new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        int incr;
+                        // 10 kere progress barı notify ediyoruz.
+                        for (incr = 0; incr <= 100; incr+=5) {
+                            //mBuilder.setProgress(100, incr, false);
+                            mBuilder.setProgress(0, 0, true);
+                            mNotificationManager.notify(0, mBuilder.build());
+                            try {
+                                // 2 saniye bekle
+                                Thread.sleep(2*1000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        // Fake indirme tamamlanınca bildirimi güncelle
+                        mBuilder.setContentText("İndirme tamamlandı.")
+                                .setProgress(0,0,false);
+                        mNotificationManager.notify(0, mBuilder.build());
+                    }
+                }
+        ).start();
     }
 }

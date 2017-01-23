@@ -56,7 +56,7 @@
     </LinearLayout>
 
     <Button
-        android:text="Clear All Notificaiton"
+        android:text="Clear All Notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button4"
@@ -64,11 +64,19 @@
         android:onClick="clearAllNotification" />
 
     <Button
-        android:text="Summary Notificaitons"
+        android:text="Summary Notifications"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button6"
         style="@style/Widget.AppCompat.Button"
         android:onClick="summaryAllNotification" />
+
+    <Button
+        android:text="Determinate Notificaitons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button7"
+        style="@style/Widget.AppCompat.Button"
+        android:onClick="determinateNotification"/>
 
 </LinearLayout>
