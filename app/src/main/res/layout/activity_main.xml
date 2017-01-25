@@ -79,4 +79,20 @@
         style="@style/Widget.AppCompat.Button"
         android:onClick="determinateNotification"/>
 
+    <Button
+        android:text="Heads Up Notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button8"
+        style="@style/Widget.AppCompat.Button"
+        android:onClick="headsUpNotification"/>
+
+    <Button
+        android:text="Music Notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/button9"
+        style="@style/Widget.AppCompat.Button"
+        android:onClick="lockScreenNotification"/>
+
 </LinearLayout>

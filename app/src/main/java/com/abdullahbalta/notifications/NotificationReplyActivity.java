@@ -26,7 +26,6 @@ public class NotificationReplyActivity extends AppCompatActivity {
         NotificationManager notificationManager =
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(5, repliedNotification);
-
     }
 
     private CharSequence getMessageText(Intent intent) {

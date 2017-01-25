@@ -23,7 +23,7 @@
                 android:value=".MainActivity"/>
         </activity>
         <activity android:name=".NotificationReplyActivity"/>
-        
+
     </application>
 
 </manifest>

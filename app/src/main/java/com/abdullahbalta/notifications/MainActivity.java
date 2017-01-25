@@ -202,4 +202,26 @@ public class MainActivity extends AppCompatActivity {
                 }
         ).start();
     }
+
+    public void headsUpNotification(View view){
+        mBuilder.setContentTitle("Dikkat Et");
+        mBuilder.setContentText("Bu bir heads up bildirimdir.");
+        mBuilder.setSmallIcon(R.drawable.ic_thumb_up_black_48dp);
+        mBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
+        mBuilder.setDefaults(NotificationCompat.DEFAULT_ALL);
+        mNotificationManager.notify(0, mBuilder.build());
+    }
+
+    public void lockScreenNotification(View view){
+        Intent intent = new Intent(this, NotificationReplyActivity.class);
+        PendingIntent replyPendingIntent = PendingIntent.getBroadcast(getApplicationContext(),0,intent,0);
+        mBuilder.setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+        mBuilder.setSmallIcon(R.drawable.ic_music_video_black_48dp);
+        mBuilder.addAction(R.drawable.ic_skip_previous_black_48dp, "Previous", replyPendingIntent);
+        mBuilder.addAction(R.drawable.ic_play_arrow_black_48dp, "Play", replyPendingIntent);
+        mBuilder.addAction(R.drawable.ic_skip_next_black_48dp, "Next", replyPendingIntent);
+        mBuilder.setContentTitle("Wonderful music");
+        mBuilder.setContentText("My Awesome Band");
+        mNotificationManager.notify(0, mBuilder.build());
+    }
 }
